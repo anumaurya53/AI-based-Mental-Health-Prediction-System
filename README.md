@@ -1,6 +1,8 @@
 # Mental Health Project: Stress Prediction Using Multimodal Inputs
 ## Introduction
 This is a final project for the Data Talks Club MLOps [Zoomcamp ](https://github.com/DataTalksClub/mlops-zoomcamp). In this project, I have implemented the end-to-end machine learning life cycle, including infrastructure provisioning using Terraform, modeling and experiment tracking using MLflow, orchestration with Mage, deployment using Flask, Lambda and Kinesis, monitoring with Evidently and Grafana, and best practices such as integration tests with Localstark, unit testing, linting and formatting, Makefile and pre-commit hooks.
+## 👥 Team Details
+
 
 
 ![System Design](images/mental_health_mlops_project.drawio.svg)
@@ -19,6 +21,7 @@ This is a final project for the Data Talks Club MLOps [Zoomcamp ](https://github
 - [Setup](#setup)
 - [Acknowledgement](#acknowledgement)
 - [References](#references)
+
 
 ### Problem Statement
 The World Health Organization (WHO) defines mental health as a state of well-being that allows individuals to effectively manage the stresses of life, fulfill their potential, learn efficiently, work productively, and contribute meaningfully to their communities. This definition highlights the critical role that stress management plays in maintaining mental health. When stress becomes unmanageable, it can act as a significant trigger for mental health issues, leading to a range of emotional and psychological difficulties. In contrast to the WHO definition, the National Alliance on Mental Illness (NAMI) describes mental illness as a set of conditions that profoundly impact a person's emotions, behavior, thoughts, and mood, resulting in disruptions to their daily functioning [1]. The effects of mental illnesses are far-reaching, affecting over 1 billion people globally and leading to substantial economic consequences[2]. Among the various factors contributing to mental illness, stress was recognized as a key element [3], highlighting the urgent need for technological tools that enable continuous monitoring and care to detect stress and prevent mental health issues.
@@ -218,3 +221,11 @@ UPDATE 2025: This repo began as a learning project. A few steps weren’t produc
 [2]	J. Blair, J. Brozena, M. Matthews, T. Richardson, and S. Abdullah, “Financial technologies (FinTech) for mental health: The potential of objective financial data to better understand the relationships between financial behavior and mental health,” Front. Psychiatry, vol. 13, 2022, Accessed: Jan. 08, 2024. [Online]. Available: https://www.frontiersin.org/articles/10.3389/fpsyt.2022.810057
 
 [3]	Y.-C. Shin, D. Lee, J. Seol, and S.-W. Lim, “What Kind of Stress Is Associated with Depression, Anxiety and Suicidal Ideation in Korean Employees?,” J. Korean Med. Sci., vol. 32, no. 5, pp. 843–849, May 2017, doi: 10.3346/jkms.2017.32.5.843.
+
+
+Project initiated and maintained by: Anupama maurya
+
+Team Members:
+- Anupama Maurya (Anumaurya53)(Frontend + ML Integration)
+- Member 2 Pratibha Singh
+- Member 3 Rahul Bhaskar
