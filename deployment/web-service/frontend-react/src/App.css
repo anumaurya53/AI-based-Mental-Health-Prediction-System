@@ -1,0 +1,92 @@
+/* 🌈 Background */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #667eea, #764ba2);
+}
+
+/* 🔝 Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.navbar span {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+/* 📦 Main Container */
+.container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 15px;
+  width: 400px;
+  margin: 50px auto;
+  text-align: center;
+  color: white;
+
+  /* 🔥 overflow fix */
+  overflow: hidden;
+}
+
+/* ✨ Heading */
+.container h2 {
+  margin-bottom: 40px;
+}
+
+/* 🧾 Input */
+input {
+  width: 90%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+/* 🔘 Button */
+button {
+  background: #ff4f9a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff2d80;
+}
+
+/* 📊 Result Box */
+.result {
+  margin-top: 15px;
+  font-size: 16px;
+
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+
+  /* 🔥 FIX TEXT OVERFLOW */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+  max-width: 100%;
+}
+
+/* 📊 Graph */
+canvas {
+  margin-top: 20px;
+}
+
+/* 🤖 Chatbot */
+input[placeholder*="Ask"] {
+  margin-top: 20px;
+}

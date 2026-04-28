@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mental Health Predictor</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: white;
+            color: black;
+            padding: 30px;
+            border-radius: 12px;
+            width: 380px;
+            margin: auto;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+        }
+
+        input {
+            width: 95%;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #5a67d8;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>🧠 Mental Health Predictor</h2>
+
+    <label>📝 How are you feeling?</label><br>
+    <input id="text" placeholder="Write your feelings"><br><br>
+
+    <label>😊 Overall Mood Score (0-100)</label><br>
+    <input id="tone" placeholder="e.g. 20"><br><br>
+
+    <label>👤 Self-focus (I usage)</label><br>
+    <input id="i" placeholder="e.g. 10"><br><br>
+
+    <label>😔 Negative Emotion Level</label><br>
+    <input id="negemo" placeholder="e.g. 5"><br><br>
+
+    <label>💬 Confidence Level</label><br>
+    <input id="clout" placeholder="e.g. 22"><br><br>
+
+    <label>📊 Sentiment Score (-1 to 1)</label><br>
+    <input id="sentiment" placeholder="e.g. -0.5"><br><br>
+
+    <button onclick="predict()">Predict</button>
+
+    <h3 id="result"></h3>
+</div>
+
+<script>
+
+// ✅ Chatbot logic
+function getBotResponse(input) {
+    input = input.toLowerCase();
+
+    if (input.includes("stress")) {
+        return "👉 Try meditation, exercise and take proper sleep.";
+    } 
+    else if (input.includes("sleep")) {
+        return "👉 Maintain 7-8 hours sleep and avoid mobile before bed.";
+    } 
+    else if (input.includes("sad")) {
+        return "👉 Talk to someone you trust and don't stay alone.";
+    }
+    else if (input.includes("anxiety")) {
+        return "👉 Practice deep breathing and stay calm.";
+    }
+    else if (input.includes("hello") || input.includes("hi")) {
+        return "👋 Hello! How can I help you?";
+    } 
+    else {
+        return "🤖 I'm here to help with mental health. Ask me anything 😊";
+    }
+}
+
+
+// ✅ Updated predict function
+function predict() {
+
+    const userInput = document.getElementById("text").value;
+
+    const data = {
+        text: userInput,
+        lex_liwc_Tone: Number(document.getElementById("tone").value),
+        lex_liwc_i: Number(document.getElementById("i").value),
+        lex_liwc_negemo: Number(document.getElementById("negemo").value),
+        lex_liwc_Clout: Number(document.getElementById("clout").value),
+        sentiment: Number(document.getElementById("sentiment").value)
+    };
+
+    fetch("http://127.0.0.1:9696/predict", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        let botReply = getBotResponse(userInput);
+
+        let resultText = data.prediction == 5
+            ? "⚠️ You may be experiencing stress.\n" + botReply
+            : "😊 You seem mentally healthy.\n" + botReply;
+
+        document.getElementById("result").innerText = resultText;
+    })
+    .catch(err => {
+        document.getElementById("result").innerText = "❌ Server error";
+    });
+}
+
+</script>
+
+</body>
+</html>

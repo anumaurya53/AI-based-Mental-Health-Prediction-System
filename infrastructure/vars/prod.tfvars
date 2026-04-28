@@ -1,0 +1,7 @@
+model_bucket = "prod-mlflow-models-dara"
+source_stream_name = "prod_stress_events"
+output_stream_name = "prod_stress_predictions"
+lambda_function_local_path = "~/mental_health_mlops_project/tests/integration-tests/lambda_function.py"
+docker_image_local_path = "~/mental_health_mlops_project/Dockerfile"
+ecr_repo_name = "prod_stream_model_prediction"
+lambda_function_name = "prod_prediction_lambda"
